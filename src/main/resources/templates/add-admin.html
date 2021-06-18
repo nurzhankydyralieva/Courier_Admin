@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<body>
+<div class="position-absolute top-50 start-50 translate-middle row ">
+    <form action="#" th:action="@{/addAdmin}" th:object="${user}" method="post">
+        <h2 class="mb-4 " align="center">Sign in</h2>
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" th:field="*{name}" id="name" placeholder="Name">
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+        </div>
+        <div class="mb-3">
+            <label for="familyName" class="form-label">Family name</label>
+            <input type="text" class="form-control" th:field="*{familyName}" id="familyName" placeholder="Family name">
+            <span th:if="${#fields.hasErrors('familyName')}" th:errors="*{familyName}"></span>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" th:field="*{password}" id="password" placeholder="Password">
+            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+        </div>
+
+        <button type="submit" class="btn btn-secondary col-12"  value="Add User">Add admin</button>
+    </form>
+</div>
+</body>
+</html>
